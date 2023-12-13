@@ -18,14 +18,13 @@ int main()
     {
         if (a[i] > max)
         {
-            max = a[i]; // cập nhật giá trị lớn nhất
+            max = a[i];
         }
         if (a[i] < min)
         {
             min = a[i];
         }
     }
-    // in ra kết quả
     printf("Gia tri lon nhat trong mang la: %d\n", max);
     printf("Gia tri nho nhat trong mang la: %d\n", min);
     return 0;

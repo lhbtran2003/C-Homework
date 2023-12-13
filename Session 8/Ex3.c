@@ -12,7 +12,7 @@ int main()
         printf("Nhap gia tri cua phan tu thu %d: ", i + 1);
         scanf("%d", &a[i]);
     }
-    int findNumber; // giá trị cần tìm
+    int findNumber;
     printf("Nhap gia tri can tim: ");
     scanf("%d", &findNumber);
     int sum = 0;

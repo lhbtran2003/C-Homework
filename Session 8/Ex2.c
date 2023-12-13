@@ -17,8 +17,7 @@ int main()
             scanf("%lf", &a[i][j]);
         }
     }
-    double sum = 0; // biến lưu trữ tổng các phần tử chẵn
-    // in ra giá trị các phần tử chẵn và tính tổng chúng
+    double sum = 0;
     printf("Cac phan tu co gia tri chan trong mang la: \n");
     for (int i = 0; i < row; i++)
     {
