@@ -19,4 +19,5 @@ add_library(C_Homework STATIC library.c
         "Session 8/Ex1.c"
         "Session 8/Ex2.c"
         "Session 8/Ex3.c"
+        "Session 9/Ex1.c"
 )

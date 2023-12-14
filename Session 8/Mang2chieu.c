@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main() {
-    //
+
     //int bangdiem[][3] = {
      //       {7, 9, 8},
      //       {8, 6, 7},

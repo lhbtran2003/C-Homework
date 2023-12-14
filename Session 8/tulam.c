@@ -6,7 +6,7 @@ int main(){
         scanf("%d\n", &number[i]);
     }printf("Display array");
     for(int i=0; i<5; i++){
-        printf("%d", number[i]);
+        printf("%d ", number[i]);
     }
 
         /*int number[5];

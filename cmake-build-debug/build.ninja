@@ -145,6 +145,18 @@ build CMakeFiles/C_Homework.dir/Session_8/Ex3.c.obj: C_COMPILER__C_Homework_unsc
   OBJECT_DIR = CMakeFiles\C_Homework.dir
   OBJECT_FILE_DIR = CMakeFiles\C_Homework.dir\Session_8
 
+build CMakeFiles/C_Homework.dir/Session_12/demo.c.obj: C_COMPILER__C_Homework_unscanned_Debug D$:/C_Homework/Session$ 12/demo.c || cmake_object_order_depends_target_C_Homework
+  DEP_FILE = CMakeFiles\C_Homework.dir\Session_12\demo.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\C_Homework.dir
+  OBJECT_FILE_DIR = CMakeFiles\C_Homework.dir\Session_12
+
+build CMakeFiles/C_Homework.dir/Session_9/Ex1.c.obj: C_COMPILER__C_Homework_unscanned_Debug D$:/C_Homework/Session$ 9/Ex1.c || cmake_object_order_depends_target_C_Homework
+  DEP_FILE = CMakeFiles\C_Homework.dir\Session_9\Ex1.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\C_Homework.dir
+  OBJECT_FILE_DIR = CMakeFiles\C_Homework.dir\Session_9
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target C_Homework
@@ -153,7 +165,7 @@ build CMakeFiles/C_Homework.dir/Session_8/Ex3.c.obj: C_COMPILER__C_Homework_unsc
 #############################################
 # Link the static library libC_Homework.a
 
-build libC_Homework.a: C_STATIC_LIBRARY_LINKER__C_Homework_Debug CMakeFiles/C_Homework.dir/library.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex3.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex5.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex4.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex3.c.obj CMakeFiles/C_Homework.dir/Session_6/Homework/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_8/Mang2chieu.c.obj CMakeFiles/C_Homework.dir/Session_8/saochepMang.c.obj CMakeFiles/C_Homework.dir/Session_8/tulam.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex3.c.obj
+build libC_Homework.a: C_STATIC_LIBRARY_LINKER__C_Homework_Debug CMakeFiles/C_Homework.dir/library.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex3.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex5.c.obj CMakeFiles/C_Homework.dir/Session_5/Ex4.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_7/Ex3.c.obj CMakeFiles/C_Homework.dir/Session_6/Homework/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_8/Mang2chieu.c.obj CMakeFiles/C_Homework.dir/Session_8/saochepMang.c.obj CMakeFiles/C_Homework.dir/Session_8/tulam.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex1.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex2.c.obj CMakeFiles/C_Homework.dir/Session_8/Ex3.c.obj CMakeFiles/C_Homework.dir/Session_12/demo.c.obj CMakeFiles/C_Homework.dir/Session_9/Ex1.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles\C_Homework.dir
   POST_BUILD = cd .
