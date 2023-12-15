@@ -7,7 +7,7 @@ int main(){
     printf("2.In ra gia tri cac phan tu dang quan li\n");
     printf("3.In ra gia tri cac phan tu chan va tinh tong\n");
     while(1)
-    {
+
         int chuc_nang;
         printf("Muc ban chon la: ");
         scanf("%d", &chuc_nang);
