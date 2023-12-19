@@ -6,7 +6,7 @@ int main(){
     printf("1.Nhap so phan tu can nhap va gia tri cac phan tu\n");
     printf("2.In ra gia tri cac phan tu dang quan li\n");
     printf("3.In ra gia tri cac phan tu chan va tinh tong\n");
-    while(1)
+    while(1){b
 
         int chuc_nang;
         printf("Muc ban chon la: ");
