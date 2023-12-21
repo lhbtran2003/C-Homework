@@ -22,32 +22,39 @@ void array_after(int a[], int size)
     }
     printf("\n");
 }
-void chenSo(int a[], int *n, int key)
-{
-    int i;
-    if (key > a[0])
-    {
-        for (i = *n - 1; i >=0; i--)
-        {
-            a[i+1] = a[i];
-        }
-        a[0] = key;
-    }else
-    {
-        for(i=1; i<*n; i++)
-        {
-            if (a[i] >= key && a[i-1] < key)
-                break;
-        }
-        for(int j = *n-1; j >= i; j--)
-        {
-            a[j+1] = a[j];
-        }
-        a[i] = key;
-    }
-    (*n)++;
-}
+//void chenSo(int a[], int *n, int key)
+//{
+//    int i;
+//    if (key > a[0])
+//    {
+//        for (i = *n - 1; i >=0; i--)
+//        {
+//            a[i+1] = a[i];
+//        }
+//        a[0] = key;
+//    }else
+//    {
+//        for(i=1; i<*n; i++)
+//        {
+//            if (a[i] >= key && a[i-1] < key)
+//                break;
+//        }
+//        for(int j = *n-1; j >= i; j--)
+//        {
+//            a[j+1] = a[j];
+//        }
+//        a[i] = key;
+//    }
+//    (*n)++;
+//}
 
+void chen(int arr[], int size)
+{
+    int m;
+    printf("Enter m: ");
+    scanf("%d", &m);
+    arr[size] = m;
+}
 int main(){
     int a[100];
     int n;
