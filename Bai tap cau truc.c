@@ -1,6 +1,6 @@
 #include<stdio.h>
 typedef struct {
-    char name[50];
+    char *name;
     int population;
     double literacyRate;
     int totalIncome;
@@ -15,6 +15,7 @@ void incomeSort (state arr[], int n){
 
     } printf("Thanh pho co tong thu nhap cao nhat la: %s", arr[maxIncome].name);
 }
+
 
 void literacyRateSort(state arr[], int m){
     int maxRate = 0, i;
