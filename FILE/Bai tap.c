@@ -12,7 +12,7 @@ int main() {
     char *word;
     int n;
 
-    fp_in = fopen("sinhvien.txt", "r");
+    fp_in = fopen("sinhvien.txt", "r+");
     if (fp_in == NULL) {
         printf("%s file not open!\n", fname_in);
         return -1;
