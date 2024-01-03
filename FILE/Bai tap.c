@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <string.h>
-#include<ctype.h>
+#include <ctype.h>
 #define N 100
 
 int main() {
     FILE *fp_in, *fp_out;
-    char fname_in[] = "sinhvien.txt";
-    char fname_out[] = "sinhvien_out.txt";
+    char fname_in[] = "sinhvien";
+    char fname_out[] = "sinhvien_out";
     char line[N];
     char name[N];
     char *word;
     int n;
 
-    fp_in = fopen(fname_in, "r");
+    fp_in = fopen("sinhvien.txt", "r");
     if (fp_in == NULL) {
         printf("%s file not open!\n", fname_in);
-        return -1; // Kết thúc chương trình
+        return -1;
     }
 
-    fp_out = fopen(fname_out, "w");
+    fp_out = fopen("sinhvien_out.txt", "w");
     if (fp_out == NULL) {
         printf("%s file not open!\n", fname_out);
         return -1;
@@ -27,7 +27,7 @@ int main() {
     fgets(line, N, fp_in);
     sscanf(line, "%d", &n);
     sprintf(line, "%d\n", n);
-    fputs(line, fp_out); // Ghi chuỗi line vào file đầu ra
+    fputs(line, fp_out);
 
     while (fgets(line, N, fp_in) != NULL) {
         name[0] = '\0';
