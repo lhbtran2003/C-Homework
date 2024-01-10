@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 #include <stdlib.h>
 #define N 200
 
 typedef struct {
-    char ten[100];
-    char lop[20];
-    char ngaysinh[50];
+    char ten[N];
+    char lop[N];
+    char ngaysinh[N];
     double gpa;
 }sinh_vien;
 

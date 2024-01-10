@@ -1,0 +1,4 @@
+Ma Sach    Ten Sach                       Tac Gia              Gia        The Loai            
+2345       Con cho nho mang gio hoa hong  nguyen nhat anh      30000      truyen ngan         
+Ma Sach    Ten Sach                       Tac Gia              Gia        The Loai            
+2346       Cua so windown                 nguyen nhat anh      45000      lang mang           
