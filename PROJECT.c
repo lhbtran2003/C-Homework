@@ -17,7 +17,8 @@ void hien_thi_sach(book sach[], int n);
 void sap_xep_tang(book sach[], int n);
 void sap_xep_giam(book sach[], int n);
 void question(char continueMenu);
-
+void search_book_by_author(book sach[], int *n);
+void search_book_by_price(book sach[], int *n);
 
 int main(){
     int chon, n=0;
@@ -52,20 +53,23 @@ int main(){
                 question(continue_menu);
                 break;
             case 5:
-                hien_thi_sach(sach, n);
-                question(continue_menu);
-                break;
-            case 6:
                 sap_xep_tang(sach, n);
                 question(continue_menu);
                 break;
-            case 7:
+            case 6:
                 sap_xep_giam(sach, n);
                 question(continue_menu);
                 break;
+            case 7:
+                search_book_by_author(sach, &n);
+                question(continue_menu);
+                break;
             case 8:
+                search_book_by_price(sach, &n);
+                question(continue_menu);
                 break;
             case 9:
+                printf("Dong chuong trinh.");
                 break;
             default:
                 printf("Khong ton tai muc nay! Moi ban chon lai:");
