@@ -53,7 +53,7 @@ int main(){
                 }
                 chinh_sua = strtok(NULL, ",");
             }
-            ++n; // so luong sinh vien
+            ++n;
         }
 
         qsort(a, n, sizeof(sinh_vien), cmp);
@@ -64,4 +64,11 @@ int main(){
         fclose(fp_out);
     }
     return 0;
+}
+
+int search(list &ds, int x){
+    for(int i = 0; i<ds.n; i++){
+        if(ds.nodes[i]->máo == x) return i;
+        return -1;
+    }
 }

@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
 #define N 100
 
-typedef struct {
+typedef struct{
     char ma_sach[N];
     char ten_sach[N];
     char tac_gia[N];
     int gia;
     char the_loai[N];
-} book;
+}book;
 
 void ghi_file(book sach[], int n);
 void them_sach(book sach[], int *n);
@@ -25,13 +24,12 @@ void search_book_by_author(book sach[], int *n);
 void search_book_by_price(book sach[], int *n);
 void ghi_file_title();
 
-int main() {
-    int chon, n = 0;
+int main(){
+    int chon, n=0;
     char continue_menu = 'y';
     book sach[N];
     ghi_file_title();
-
-    do {
+    do{
         printf("\t\t\t\t\t\t ===================    MENU     ====================\n");
         printf("\t\t\t\t\t\t |       1. Cap nhat thong tin sach (them).         |\n");
         printf("\t\t\t\t\t\t |       2. Cap nhat thong tin sach (sua).          |\n");
@@ -44,21 +42,20 @@ int main() {
         printf("\t\t\t\t\t\t ====================================================\n");
         printf(">>>>> Ban chon muc nao (1->8): ");
         scanf("%d", &chon);
-        getchar(); // consume newline
-
-        switch (chon) {
+        getchar();
+        switch(chon){
             case 1:
                 them_sach(sach, &n);
-                ghi_file(sach, n);
                 question(&continue_menu);
                 break;
             case 2:
                 sua_sach(sach, n);
-                ghi_file(sach, n);
+                ghi_file(sach,n);
                 question(&continue_menu);
                 break;
             case 3:
                 xoa_sach(sach, &n);
+                ghi_file(sach, n);
                 question(&continue_menu);
                 break;
             case 4:
@@ -84,12 +81,13 @@ int main() {
             case 9:
                 break;
             default:
-                printf("Khong ton tai muc nay! Moi ban chon lai:\n\n");
+                printf("Khong ton tai muc nay! Moi ban chon lai:");
+                printf("\n\n");
                 break;
         }
-    } while (chon != 9 && continue_menu == 'y');
-
-    printf("***CHUONG TRINH KET THUC.***\n");
+    }
+    while(chon != 9 && continue_menu == 'y');
+    printf("***CHUONG TRINH KET THUC.***");
     return 0;
 }
 
@@ -97,10 +95,8 @@ int main() {
 void ghi_file(book sach[], int n) {
     FILE *fp;
     fp = fopen("book.txt", "w");
-
-    if (fp != NULL) {
+    if(fp!=NULL) {
         fprintf(fp, "%-10s| %-30s| %-17s| %-10s| %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai");
-
         for (int i = 0; i < n; i++) {
             fprintf(fp, "%-10s| %-30s| %-17s| %-10d| %-20s\n",
                     sach[i].ma_sach, sach[i].ten_sach, sach[i].tac_gia,
@@ -108,7 +104,9 @@ void ghi_file(book sach[], int n) {
         }
         fclose(fp);
     }
-    printf("Du lieu da duoc them vao tep tin.\n");
+    if(fclose(fp) ==0){
+        printf(  "Du lieu da duoc them vao tep tin.\n");
+    }
 }
 
 // CHUẨN HÓA TÊN SÁCH
@@ -126,14 +124,17 @@ void chuan_hoa_ten_sach(char str[]) {
     }
 }
 
+
+
 // CASE 1
-void them_sach(book sach[], int *n) {
+void them_sach(book sach[], int *n){
     int so_sach;
     printf("Nhap vao so luong sach ban muon them:");
-    scanf("%d", n);
+    scanf("%d", &so_sach);
+    getchar();
     printf("\n");
 
-    for (int i = 0; i < *n; i++) {
+    for(int i = 0; i < *n+so_sach; i++) {
         printf("** Quyen sach thu %d **\n", i + 1);
 
         do {
@@ -141,7 +142,6 @@ void them_sach(book sach[], int *n) {
             fflush(stdin);
             fgets(sach[i].ma_sach, sizeof(sach[i].ma_sach), stdin);
             sach[i].ma_sach[strcspn(sach[i].ma_sach, "\n")] = '\0';
-
             if (strlen(sach[i].ma_sach) != 5) {
                 printf("Ma sach phai co 5 ki tu. Vui long nhap lai.\n");
             }
@@ -161,10 +161,8 @@ void them_sach(book sach[], int *n) {
         do {
             printf("Gia:");
             scanf("%d", &sach[i].gia);
-
-            if (sach[i].gia < 1000) {
+            if (sach[i].gia < 1000)
                 printf("Gia khong hop le. Vui long nhap lai.");
-            }
         } while (sach[i].gia < 1000);
 
         printf("The loai:");
@@ -173,18 +171,22 @@ void them_sach(book sach[], int *n) {
         sach[i].the_loai[strcspn(sach[i].the_loai, "\n")] = '\0';
         printf("\n");
     }
-    ghi_file(sach, *n);
+    *n += so_sach;
+
     printf("THONG BAO: THEM THANH CONG. ");
+    ghi_file(sach, *n);
+
 }
 
-// CASE 3
-void xoa_sach(book sach[], int *n) {
+
+
+//CASE 3
+void xoa_sach(book sach[], int *n){
     char ID[N];
     printf("Nhap ID sach can xoa:");
     fflush(stdin);
     fgets(ID, sizeof(ID), stdin);
     ID[strcspn(ID, "\n")] = '\0';
-
     int i;
     for (i = 0; i < *n; i++) {
         if (strcmp(sach[i].ma_sach, ID) == 0) break;
@@ -196,20 +198,22 @@ void xoa_sach(book sach[], int *n) {
         (*n)--;
         printf("THONG BAO: DA XOA SACH CO MA %s\n", ID);
         ghi_file(sach, *n);
-    } else {
+    }
+    else {
         printf("Khong tim thay ma sach da nhap!\n");
     }
-
     ghi_file(sach, *n);
 }
 
-// CASE 2
+
+//CASE 2
 void sua_sach(book sach[], int n) {
     char search_ID[N];
     printf("Nhap ID muon cap nhap: ");
     fflush(stdin);
     fgets(search_ID, sizeof(search_ID), stdin);
-    search_ID[strcspn(search_ID, "\n")] = '\0'; // loại bỏ kí tu newline "\n"
+    search_ID[strcspn(search_ID, "\n")] = '\0'; //loại bỏ kí tu newline "\n"
+
 
     for (int i = 0; i < n; i++) {
         if (strcmp(sach[i].ma_sach, search_ID) == 0) {
@@ -236,11 +240,13 @@ void sua_sach(book sach[], int n) {
             return;
         }
     }
-    ghi_file(sach, n);
     printf("Khong tim thay ma sach nay \n");
+//    ghi_file(sach, n);
 }
 
-// CASE 4
+
+
+//CASE 4
 void hien_thi_sach(book sach[], int n) {
     for (int i = 0; i < n; ++i) {
         printf("%-10s| %-30s| %-17s| %-10s| %-20d\n",
@@ -249,59 +255,61 @@ void hien_thi_sach(book sach[], int n) {
     }
 }
 
-// CASE 5
+
+//CASE 5
 void sap_xep_tang(book sach[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (sach[j].gia > sach[j + 1].gia) {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (sach[j].gia > sach[j+1].gia) {
                 book temp = sach[j];
-                sach[j] = sach[j + 1];
-                sach[j + 1] = temp;
+                sach[j] = sach[j+1];
+                sach[j+1] = temp;
             }
         }
     }
     hien_thi_sach(sach, n);
 }
 
-// CASE 6
-void sap_xep_giam(book sach[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (sach[j].gia < sach[j + 1].gia) {
+
+//CASE 6
+void sap_xep_giam(book sach[], int n){
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (sach[j].gia < sach[j+1].gia) {
                 book temp = sach[j];
-                sach[j] = sach[j + 1];
-                sach[j + 1] = temp;
+                sach[j] = sach[j+1];
+                sach[j+1] = temp;
             }
         }
     }
     hien_thi_sach(sach, n);
 }
 
-// CASE 7
-void search_book_by_author(book sach[], int *n) {
+//CASE 7
+void search_book_by_author(book sach[], int *n){
     char author[N];
     printf("Nhap ten tac gia: ");
-    fflush(stdin);
+    getchar();
     fgets(author, sizeof(author), stdin);
     author[strcspn(author, "\n")] = '\0';
 
     int found = 0;
 
-    for (int i = 0; i < *n; i++) {
-        if (strcmp(sach[i].tac_gia, author) == 0) {
+    for(int i = 0; i < *n; i++) {
+        if (strcmp (sach[i].tac_gia, author ) == 0) {
             printf("Ma sach: %s\n", sach[i].ma_sach);
             printf("Ten sach: %s\n", sach[i].ten_sach);
             printf("Tac gia: %s\n", sach[i].tac_gia);
             found = 1;
         }
     }
-    if (!found) {
-        printf("Khong tim thay sach cua tac gia nay!\n");
+    if (!found){
+        printf("Khong tim thay sach cua tac gia nay!");
     }
 }
 
-// CASE 8
-void search_book_by_price(book sach[], int *n) {
+//CASE 8
+void search_book_by_price(book sach[], int *n){
     int min_price, max_price;
     printf("Gia thap nhat (>= 1000): ");
     scanf("%d", &min_price);
@@ -311,24 +319,25 @@ void search_book_by_price(book sach[], int *n) {
     int found = 0;
 
     for (int i = 0; i < *n; i++) {
-        if (min_price <= sach[i].gia && sach[i].gia <= max_price) {
-            printf("%-10s| %-30s| %-17s| %-10s| %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai",
+        if (min_price <= sach[i].gia && sach[i].gia <= max_price ){
+            printf("| %-10s | %-18s | %-13s | %-13.2f | %-13s |\n",
                    sach[i].ma_sach, sach[i].ten_sach, sach[i].tac_gia,
                    sach[i].gia, sach[i].the_loai);
-            found = 1;
+            found= 1;
         }
     }
     if (!found) {
-        printf("Khong tim thay sach trong khoang gia nay\n");
+        printf("Khong tim thay sach trong khoang gia nay");
     }
 }
+
 
 void question(char *continueMenu) {
     printf("Ban co muon tiep tuc cac thao tac? (y/n): ");
     // nhập y nếu muốn tiếp tục sử dụng menu, n nếu muốn kết thúc chương trình
     scanf("%c", continueMenu);
     printf("\n\n");
-    }
+}
 
 void ghi_file_title() {
     FILE *fp;
@@ -338,6 +347,9 @@ void ghi_file_title() {
         printf("Khong the mo file.\n");
         return;
     }
+
     fprintf(fp, "%-10s| %-30s| %-17s| %-10s| %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai");
+
     fclose(fp);
 }
+
