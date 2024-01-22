@@ -1,2 +1,0 @@
-Ma Sach   | Ten Sach                      | Tac Gia          | Gia       | The Loai            
-00001     | Lao Hac                       | nam cao          | 34000     | truyen              

@@ -41,6 +41,7 @@ int main() {
         printf("\t\t\t\t\t\t |       6. Sap xep sach theo gia (giam dan).       |\n");
         printf("\t\t\t\t\t\t |       7. Tim kiem sach theo ten tac gia.         |\n");
         printf("\t\t\t\t\t\t |       8. Tim kiem sach theo khoang gia.          |\n");
+        printf("\t\t\t\t\t\t |       9. Thoat                                   |\n");
         printf("\t\t\t\t\t\t ====================================================\n");
         printf(">>>>> Ban chon muc nao (1->8): ");
         scanf("%d", &chon);
@@ -83,6 +84,8 @@ int main() {
                 break;
             case 9:
                 break;
+            case 10:
+                ghi_file(sach, n);
             default:
                 printf("Khong ton tai muc nay! Moi ban chon lai:\n\n");
                 break;
@@ -95,21 +98,18 @@ int main() {
 
 // GHI DỮ LIỆU VÀO FILE
 void ghi_file(book sach[], int n) {
-    FILE *fp;
-    fp = fopen("book.txt", "w");
+        FILE *fp;
+        fp = fopen("book.txt", "w+");
+        fprintf(fp, "%-10s %-30s %-20s %-10s %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai");
 
-    if (fp != NULL) {
-        fprintf(fp, "%-10s| %-30s| %-17s| %-10s| %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai");
-
-        for (int i = 0; i < n; i++) {
-            fprintf(fp, "%-10s| %-30s| %-17s| %-10d| %-20s\n",
+        for(int i = 0; i < n; i++) {
+            fprintf(fp, "%-10s %-30s %-20s %-10d %-20s\n",
                     sach[i].ma_sach, sach[i].ten_sach, sach[i].tac_gia,
                     sach[i].gia, sach[i].the_loai);
         }
         fclose(fp);
     }
-    printf("Du lieu da duoc them vao tep tin.\n");
-}
+
 
 // CHUẨN HÓA TÊN SÁCH
 void chuan_hoa_ten_sach(char str[]) {
@@ -341,3 +341,4 @@ void ghi_file_title() {
     fprintf(fp, "%-10s| %-30s| %-17s| %-10s| %-20s\n", "Ma Sach", "Ten Sach", "Tac Gia", "Gia", "The Loai");
     fclose(fp);
 }
+
